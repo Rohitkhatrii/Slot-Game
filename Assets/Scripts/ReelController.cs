@@ -40,15 +40,30 @@ public class ReelController : MonoBehaviour
 
     void Update()
     {
-        // Temporary input for testing your milestone
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            isSpinning = !isSpinning;
-        }
-
         if (isSpinning)
         {
             SpinReel();
+        }
+    }
+
+    public void StartSpinning()
+    {
+        isSpinning = true;
+    }
+
+    public void StopSpinning()
+    {
+        isSpinning = false;
+        SnapSymbols();
+    }
+
+    private void SnapSymbols()
+    {
+        foreach (RectTransform symbol in activeSymbols)
+        {
+            // Round the Y position to the nearest multiple of your symbolHeight
+            float snappedY = Mathf.Round(symbol.anchoredPosition.y / symbolHeight) * symbolHeight;
+            symbol.anchoredPosition = new Vector2(symbol.anchoredPosition.x, snappedY);
         }
     }
 
