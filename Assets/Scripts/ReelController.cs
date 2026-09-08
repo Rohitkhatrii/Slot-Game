@@ -92,4 +92,35 @@ public class ReelController : MonoBehaviour
         SlotSymbol randomData = symbolData[Random.Range(0, symbolData.Length)];
         symbolImage.sprite = randomData.symbolSprite;
     }
+
+    public SlotSymbol GetCenterSymbol()
+    {
+        RectTransform closestSymbol = null;
+        float minDistance = float.MaxValue;
+
+        // Find which symbol is closest to the middle of the reel window (Y = 0)
+        foreach (RectTransform symbol in activeSymbols)
+        {
+            float distance = Mathf.Abs(symbol.anchoredPosition.y);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closestSymbol = symbol;
+            }
+        }
+
+        if (closestSymbol != null)
+        {
+            // Read the sprite from the image and match it back to our ScriptableObject data
+            Image img = closestSymbol.GetComponent<Image>();
+            foreach (SlotSymbol data in symbolData)
+            {
+                if (data.symbolSprite == img.sprite)
+                {
+                    return data;
+                }
+            }
+        }
+        return null;
+    }
 }
