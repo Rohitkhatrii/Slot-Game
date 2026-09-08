@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 346506275}
   - component: {fileID: 346506274}
   - component: {fileID: 346506273}
+  - component: {fileID: 346506276}
   m_Layer: 5
   m_Name: ReelWindow_1
   m_TagString: Untagged
@@ -287,6 +288,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346506271}
   m_CullTransparentMesh: 1
+--- !u!114 &346506276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346506271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9f84aa09993cd42ab66b08e86c003c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReelController
+  symbolPrefab: {fileID: 5036141928939789571, guid: 9113de7f1cb35574080c27543e7554c4, type: 3}
+  symbolData:
+  - {fileID: 11400000, guid: 7b75d5651321aa04c8db6e49ecf7a518, type: 2}
+  - {fileID: 11400000, guid: 83b404e30e18d2b4ea2354b391f8225e, type: 2}
+  - {fileID: 11400000, guid: 5da50daa855d1bb4aacff14db1c57c32, type: 2}
+  - {fileID: 11400000, guid: 98dc7221b91f3b444a3f8324a2f1e7fc, type: 2}
+  scrollSpeed: 2000
+  symbolHeight: 85
+  totalSymbols: 6
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +458,7 @@ GameObject:
   - component: {fileID: 555364982}
   - component: {fileID: 555364981}
   - component: {fileID: 555364980}
+  - component: {fileID: 555364983}
   m_Layer: 5
   m_Name: ReelWindow_2
   m_TagString: Untagged
@@ -514,6 +537,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555364978}
   m_CullTransparentMesh: 1
+--- !u!114 &555364983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555364978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9f84aa09993cd42ab66b08e86c003c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReelController
+  symbolPrefab: {fileID: 5036141928939789571, guid: 9113de7f1cb35574080c27543e7554c4, type: 3}
+  symbolData:
+  - {fileID: 11400000, guid: 7b75d5651321aa04c8db6e49ecf7a518, type: 2}
+  - {fileID: 11400000, guid: 5da50daa855d1bb4aacff14db1c57c32, type: 2}
+  - {fileID: 11400000, guid: 83b404e30e18d2b4ea2354b391f8225e, type: 2}
+  - {fileID: 11400000, guid: 98dc7221b91f3b444a3f8324a2f1e7fc, type: 2}
+  scrollSpeed: 2000
+  symbolHeight: 85
+  totalSymbols: 6
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,6 +758,7 @@ GameObject:
   - component: {fileID: 1062701316}
   - component: {fileID: 1062701315}
   - component: {fileID: 1062701314}
+  - component: {fileID: 1062701317}
   m_Layer: 5
   m_Name: ReelWindow_3
   m_TagString: Untagged
@@ -792,6 +837,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062701312}
   m_CullTransparentMesh: 1
+--- !u!114 &1062701317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062701312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9f84aa09993cd42ab66b08e86c003c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReelController
+  symbolPrefab: {fileID: 5036141928939789571, guid: 9113de7f1cb35574080c27543e7554c4, type: 3}
+  symbolData:
+  - {fileID: 11400000, guid: 83b404e30e18d2b4ea2354b391f8225e, type: 2}
+  - {fileID: 11400000, guid: 5da50daa855d1bb4aacff14db1c57c32, type: 2}
+  - {fileID: 11400000, guid: 7b75d5651321aa04c8db6e49ecf7a518, type: 2}
+  - {fileID: 11400000, guid: 98dc7221b91f3b444a3f8324a2f1e7fc, type: 2}
+  scrollSpeed: 2000
+  symbolHeight: 85
+  totalSymbols: 6
 --- !u!1 &1200194635
 GameObject:
   m_ObjectHideFlags: 0
