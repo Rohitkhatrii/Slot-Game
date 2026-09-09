@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
 {
     public LeverController arcadeLever;
 
+    public TextMeshProUGUI freeSpinsText;
+
     public int freeSpins = 0;
 
     public GameObject bettingPanel;
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         UpdateGoldUI();
+        UpdateFreeSpinsUI();
     }
 
     void Update()
@@ -53,6 +56,7 @@ public class GameManager : MonoBehaviour
         {
             // Free Spin: Deduct a free spin, but DO NOT deduct gold
             freeSpins--;
+            UpdateFreeSpinsUI();
             Debug.Log("Free Spin used! Remaining: " + freeSpins);
             StartCoroutine(RoutineSpin());
         }
@@ -117,9 +121,10 @@ public class GameManager : MonoBehaviour
             Debug.Log($"<color=green>JACKPOT! Won {winnings}G!</color>");
 
             // AWARD FREE SPINS if the matching symbol is a Bell OR a BAR
-            if (reel1Result.name == "BellData" || reel1Result.name == "BarData") 
+            if (reel1Result.name == "BellData" || reel1Result.name == "BarData")
             {
                 freeSpins += 5;
+                UpdateFreeSpinsUI();
                 Debug.Log("<color=yellow>BONUS! 5 Free Spins Awarded!</color>");
             }
         }
@@ -149,4 +154,20 @@ public class GameManager : MonoBehaviour
     Application.Quit();
 #endif
     }
+
+    private void UpdateFreeSpinsUI()
+{
+    if (freeSpinsText != null)
+    {
+        if (freeSpins > 0)
+        {
+            freeSpinsText.text = "Free Spins: " + freeSpins;
+            freeSpinsText.gameObject.SetActive(true); // Show text
+        }
+        else
+        {
+            freeSpinsText.gameObject.SetActive(false); // Hide text
+        }
+    }
+}
 }
