@@ -6,13 +6,13 @@ public class ReelController : MonoBehaviour
 {
     [Header("References")]
     public RectTransform symbolPrefab;
-    public SlotSymbol[] symbolData; 
-    
+    public SlotSymbol[] symbolData;
+
     [Header("Settings")]
     public float scrollSpeed = 2000f;
     public float symbolHeight = 300f; // The vertical spacing between symbols
     public int totalSymbols = 6;      // How many symbols to stack (covers window + buffer)
-    
+
     private List<RectTransform> activeSymbols = new List<RectTransform>();
     private bool isSpinning = false;
 
@@ -27,10 +27,9 @@ public class ReelController : MonoBehaviour
         {
             // Spawn the prefab as a child of this Reel Window
             RectTransform newSymbol = Instantiate(symbolPrefab, transform);
-            
+
             // Stack them vertically (0, 300, 600, etc.)
-            newSymbol.anchoredPosition = new Vector2(0, i * symbolHeight);
-            
+            newSymbol.anchoredPosition = new Vector2(0, (i - 1) * symbolHeight);
             // Assign a random symbol from your data
             AssignRandomSymbol(newSymbol);
 
@@ -74,12 +73,12 @@ public class ReelController : MonoBehaviour
             // Move symbol down
             symbol.anchoredPosition += Vector2.down * scrollSpeed * Time.deltaTime;
 
-            // If the symbol drops completely below the view
-            if (symbol.anchoredPosition.y <= -symbolHeight)
+            // Allow the symbol to drop completely below the extended view area
+            if (symbol.anchoredPosition.y <= -(symbolHeight * 1.5f))
             {
                 // Teleport it to the very top of the stack
                 symbol.anchoredPosition = new Vector2(0, symbol.anchoredPosition.y + (totalSymbols * symbolHeight));
-                
+
                 // Swap the picture so the pattern looks random
                 AssignRandomSymbol(symbol);
             }
