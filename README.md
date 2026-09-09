@@ -3,6 +3,12 @@
 ## Game Overview
 This is a 2D arcade-style slot machine I built in Unity. The goal is simple: manage your gold balance, pick your bet size (10, 50, or 100 Gold), pull the red arcade lever, and try to match three symbols in a row. Whenever you win, your payout is calculated by multiplying your current bet by the winning symbol's specific multiplier.
 
+## How To Play (Controls)
+Set Your Bet: Click the on-screen buttons to choose your bet size (10G, 50G, or 100G).
+Spin the Reels: You can start a spin using two different methods:
+* Press the Spacebar on your keyboard.
+* Click the red arcade lever using your Left Mouse Button (LMB).
+
 ## Instructions to Run WebGL Build
 You do not need to download, extract, or install any files to play. I have hosted the final WebGL build live using GitHub Pages. 
 
