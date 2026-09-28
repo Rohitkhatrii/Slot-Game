@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -50,7 +51,7 @@ public class GameManager : MonoBehaviour
     // Checks gold, takes the bet, and starts the spin routine
     public void TrySpin()
     {
-        if (currentState != GameState.Idle) return;
+        if (currentState != GameState.Idle) return;    // when currentState becomes Spinning so during mid spin this method wont work further . simply gold will not be deducted during midspin 
 
         if (freeSpins > 0)
         {
@@ -73,7 +74,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private System.Collections.IEnumerator RoutineSpin()
+    IEnumerator RoutineSpin()
     {
         currentState = GameState.Spinning;
 
@@ -83,14 +84,14 @@ public class GameManager : MonoBehaviour
 
         foreach (ReelController reel in reels)
         {
-            reel.StartSpinning();
+            reel.StartSpinning();  //Spinning start all 3 reels
         }
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2f);    //reels run for 2 seconds
 
-        foreach (ReelController reel in reels)
+        foreach (ReelController reel in reels)    
         {
-            reel.StopSpinning();
+            reel.StopSpinning();              // reel stop then below line makes 0.5 second gap before 2nd iteration(2nd reel)
             yield return new WaitForSeconds(0.5f);
         }
 
@@ -140,7 +141,7 @@ public class GameManager : MonoBehaviour
     {
         if (goldText != null)
         {
-            goldText.text = playerGold.ToString();
+            goldText.text = playerGold.ToString();  // converting To String because we cannot directly assign a number to a text field
         }
     }
 
@@ -156,18 +157,18 @@ public class GameManager : MonoBehaviour
     }
 
     private void UpdateFreeSpinsUI()
-{
-    if (freeSpinsText != null)
     {
-        if (freeSpins > 0)
+        if (freeSpinsText != null)
         {
-            freeSpinsText.text = "Free Spins: " + freeSpins;
-            freeSpinsText.gameObject.SetActive(true); // Show text
-        }
-        else
-        {
-            freeSpinsText.gameObject.SetActive(false); // Hide text
+            if (freeSpins > 0)
+            {
+                freeSpinsText.text = "Free Spins: " + freeSpins;
+                freeSpinsText.gameObject.SetActive(true); // Show text
+            }
+            else
+            {
+                freeSpinsText.gameObject.SetActive(false); // Hide text
+            }
         }
     }
-}
 }

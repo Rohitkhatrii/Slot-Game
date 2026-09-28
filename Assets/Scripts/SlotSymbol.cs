@@ -5,5 +5,5 @@ public class SlotSymbol : ScriptableObject
 {
     public string symbolName;
     public Sprite symbolSprite;
-    public int payoutMultiplier;
+    public int payoutMultiplier;    
 }
